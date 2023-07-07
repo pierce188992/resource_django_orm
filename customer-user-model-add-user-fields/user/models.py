@@ -3,6 +3,8 @@ from django.contrib.auth.admin import User
 from django.dispatch import receiver
 from django.db.models.signals import post_save
 
+# 另外建一個和user連結的資料表
+# 並設置當user創造時 也會產生userprofile的資料表
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     age = models.IntegerField(null=True, blank=True)
